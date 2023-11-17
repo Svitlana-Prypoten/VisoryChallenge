@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Button from "../ui/Button";
-import classes from "./eventSearch.module.css";
+import classes from "./EventSearch.module.css";
 
 function EventsSearch(props) {
   const date = new Date();
