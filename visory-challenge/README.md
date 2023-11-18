@@ -13,8 +13,7 @@ The system then returns a set of basic information surrounding the event, consis
 
 There are options to filter events based on start date, end date, and postcode.
 
-This project can be accessed via [https://visory-challenge-ijgb.vercel.app/]
-(https://visory-challenge-ijgb.vercel.app/)
+This project can be accessed via https://visory-challenge-ijgb.vercel.app/
 
 ## To Run Locally
 
@@ -46,7 +45,7 @@ npm run build
 npm start
 ```
 
-5. Open [http://localhost:3000](http://localhost:3000) with your browser to access application.
+5. Open http://localhost:3000 with your browser to access application.
 
 ## Project design rationale
 
