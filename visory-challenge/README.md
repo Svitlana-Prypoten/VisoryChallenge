@@ -1,40 +1,68 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`] (https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+## About The Project
 
-First, run the development server:
+This project is designed to find events using Ticketmaster discovery API that are located within Australia.
+The system then returns a set of basic information surrounding the event, consisting of:
+
+- event id
+- event name
+- venue name
+- start date
+- image associated with event
+
+There are options to filter events based on start date, end date, and postcode.
+
+This project can be accessed via [https://visory-challenge-ijgb.vercel.app/]
+(https://visory-challenge-ijgb.vercel.app/)
+
+## To Run Locally
+
+1. Clone GitHub the project git repository
+2. To install dependencies run under `visory-challenge` folder using
+
+```bash
+npm install
+```
+
+3. You need Ticketmaster API Key to be added into the `next.config.js` file via
+
+```bash
+env: {
+api_key_ticketmaster: [API_KEY],
+},
+```
+
+4. To start project in development mode run the following command from the `visory-challenge` folder
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+or to create and run the production version run
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+```bash
+npm run build
+npm start
+```
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+5. Open [http://localhost:3000](http://localhost:3000) with your browser to access application.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## Project design rationale
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Next.js suited this project best for a number of reasons:
 
-## Learn More
+1. Next.js provides a quick and simple setup process.
+2. Next.js supports zero-config by default, which reduces the configuration-associated delays.
+3. While this project is not back-end heavy, it still used API Key that should not be accessible for users. Next.js supports both Server-Side Rendering (SSR) and Static Site Generation (SSG) out of the box, as well as ease of API creation.
+4. I didn't have a chance to work with Next.js before, so I took the learning opportunity in the form of this project. As I am already familiar with React.js, Next.js was a natural extension.
 
-To learn more about Next.js, take a look at the following resources:
+## Testing, Validation and Optimisation
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Within the delivery scope of this project, most effort was dedicated to delivering core functionality to the exclusion of rigorous testing and optimisation. Within a more lengthy and robust project, the following methodologies would have been implemented to test, validate, and optimise the performance of the product:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+1. Currently, the website and it's responses have been manually tested and verified. Creation of robust unit tests for the API, functions, and components; as well as a Cyprus test for the front-end portion would be ideal for an enterprise-grade solution.
 
-## Deploy on Vercel
+2. Within the current implementation, there is simple date validation, stopping the user from inputting dates that are prior to today, or where the end date is before the start date. In later implementations, validation of the user postcode consisting of a viable number sequence that matches to an existing postcode within the event country.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+3. Due to development timelines, optimisation was not thoroughly conducted. Ensuring the use of Next.js best coding practices (such as avoiding boilerplate), as well as optimising the request-response methods within API use (such as caching to avoid unneeded data being pulled) would be the next step in optimising product performance.
